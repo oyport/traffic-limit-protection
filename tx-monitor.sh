@@ -124,6 +124,37 @@ load_config() {
 }
 
 #================================================================
+# 检查必需的命令
+#================================================================
+
+check_required_commands() {
+    local missing_cmds=()
+    
+    # 检查 iptables
+    if ! command -v iptables &> /dev/null; then
+        missing_cmds+=("iptables")
+    fi
+    
+    # 检查 vnstat
+    if ! command -v vnstat &> /dev/null; then
+        missing_cmds+=("vnstat")
+    fi
+    
+    # 检查 jq
+    if ! command -v jq &> /dev/null; then
+        missing_cmds+=("jq")
+    fi
+    
+    if [ ${#missing_cmds[@]} -gt 0 ]; then
+        log_message "ERROR" "Missing required commands: ${missing_cmds[*]}"
+        log_message "ERROR" "Please install: apt-get install ${missing_cmds[*]} or yum install ${missing_cmds[*]}"
+        return 1
+    fi
+    
+    return 0
+}
+
+#================================================================
 # 获取流量数据
 #================================================================
 
@@ -407,6 +438,12 @@ main() {
     
     # 加载配置
     load_config
+    
+    # 检查必需的命令
+    check_required_commands || {
+        log_message "ERROR" "Required commands check failed, skipping monitoring"
+        exit 1
+    }
     
     # 检查 vnstat 服务
     check_vnstat_service || {

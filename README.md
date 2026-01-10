@@ -6,7 +6,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Shell Script](https://img.shields.io/badge/Shell-Bash-green.svg)](https://www.gnu.org/software/bash/)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/oyport/traffic-limit-protection)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/oyport/traffic-limit-protection)
 
 *一个智能的 Linux 服务器流量监控与保护系统，防止因流量超限导致的高额费用*
 
@@ -668,7 +668,7 @@ sudo touch /var/log/tx-monitor.log
 ```
 MIT License
 
-Copyright (c) 2026 oyport
+Copyright (c) 2024-2026 oyport
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

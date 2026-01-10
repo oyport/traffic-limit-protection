@@ -1,0 +1,30 @@
+# 日志文件
+*.log
+*.log.*
+
+# 临时文件
+*.tmp
+*.bak
+*.backup.*
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# 编辑器配置
+.vscode/
+.idea/
+*.sublime-*
+
+# 本地配置（不提交到仓库）
+local-config.conf
+
+# CSV导出文件
+traffic-stats-*.csv
+
+# 测试文件
+test/
+*.test.sh
